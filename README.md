@@ -89,7 +89,7 @@
 
 ### 依赖库
 项目依赖以下第三方库（已放置在 `lib/` 目录，或需自行编译）：
-- **jsonrpc-c**：用于构建 RPC 消息
+- **jsonrpc-c**：用于构建 RPC 消息，依赖于libev库
 - **libev**：事件循环库
 - **paho.mqtt.c**：MQTT 客户端 C 库
 
@@ -97,18 +97,18 @@
 
 ### 编译步骤
 1. **编译 RPC 服务端**
-   cd rpc_server
+   `cd rpc_server
    make
    
    生成可执行文件 rpc_server
 
-2. **编译 MQTT 服务端**
+3. **编译 MQTT 服务端**
    cd mqtt_device_wechat
    make
 
    生成可执行文件 mqtt_client
 
-3. **编译 QT 服务端**
+4. **编译 QT 服务端**
    使用 Qt Creator 打开 LED_HumiTemp_Video/LED_HumiTemp_Video.pro，选择合适 kit（交叉编译工具链）进行编译。编译输出目录示例为 build-LED_TempHumi_Video-100ask-Debug/，生成的可执行文件为 LED_HumiTemp_Video
 
 ### 运行步骤
