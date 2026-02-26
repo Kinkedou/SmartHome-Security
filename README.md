@@ -193,4 +193,5 @@ make
 - 禁止商用；
 - 引用请注明出处。
 ## 作者
+- 阿卫
 - GitHub：[Kinkedou](https://github.com/Kinkedou)
