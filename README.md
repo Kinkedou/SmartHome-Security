@@ -8,11 +8,11 @@
 ## 📦 仓库结构
 | 目录/文件 | 说明 |
 |----------|------|
-| drv/ | 开发板驱动（LED GPIO ，DHT11 驱动，开发板提供） |
 | LED_HumiTemp_Video/ | QT 触摸屏客户端源码（RPC Client） |
+| build-LED_TempHumi_Video-100ask-Debug/ | QT 客户端编译输出目录 |
+| drv/ | 开发板驱动（LED GPIO ，DHT11 驱动，开发板提供） |
 | mqtt_device_wechat/ | MQTT 客户端源码（RPC client，连接 OneNET 云平台） |
 | rpc_server/ | RPC 服务端源码（RPC server） |
 | lib/ | 第三方库（jsonrpc-c, libev, paho.mqtt.c） |
 | wechat.cfg | MQTT 客户端配置文件示例 |
-| build-LED_TempHumi_Video-100ask-Debug/ | QT 客户端编译输出目录 |
 | README.md | 项目说明文档 |
