@@ -6,6 +6,7 @@
 ---
 
 ## 📦 仓库结构
+.
 ├── drv/ # 开发板驱动（LED GPIO ，DHT11 驱动，开发板提供）
 ├── LED_HumiTemp_Video/ # QT 触摸屏客户端源码（RPC Client）
 ├── mqtt_device_wechat/ # MQTT 客户端源码（RPC client，连接 OneNET 云平台）
