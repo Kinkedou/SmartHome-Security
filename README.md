@@ -34,7 +34,7 @@
 
 ## ❗ 快速开始
 ### 编译
-    ```bash
+   ```bash
    #编译 RPC 服务端
    cd rpc_server
    make
