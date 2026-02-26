@@ -103,28 +103,65 @@
    
 生成可执行文件 rpc_server
 
-3. **编译 MQTT 服务端**
+2. **编译 MQTT 服务端**
    ```bash
    cd mqtt_device_wechat
    make
 
 生成可执行文件 mqtt_client
 
-5. **编译 QT 服务端**
-   使用 Qt Creator 打开 LED_HumiTemp_Video/LED_HumiTemp_Video.pro，选择合适 kit（交叉编译工具链）进行编译。编译输出目录示例为 build-LED_TempHumi_Video-100ask-Debug/，生成的可执行文件为 LED_HumiTemp_Video
+3. **编译 QT 服务端**
+
+使用 Qt Creator 打开 LED_HumiTemp_Video/LED_HumiTemp_Video.pro，选择合适 kit（交叉编译工具链）进行编译。编译输出目录示例为 build-LED_TempHumi_Video-100ask-Debug/，生成的可执行文件为 LED_HumiTemp_Video
 
 ### 运行步骤
+- 确保开发板可以ping通外网
 - 启动服务端`./rpc_server`
 - 启动两个客户端（不分先后）`./LED_HumiTemp_Video` `./mqtt_device_wechat`
 - 建议编写开机自启动脚本（如 /etc/init.d/S99myqt），内容示例：
+  ```bash
+  #!/bin/sh
+  
+  start() {
+  echo -e "\033[9;0]" > /dev/tty0
+  export QT_QPA_GENERIC_PLUGINS=tslib:/dev/input/event1
+  export QT_QPA_PLATFORM=linuxfb:fb=/dev/fb0
+  export QT_QPA_FONTDIR=/usr/lib/fonts/
+
+  psplash-write "PROGRESS 95"
+  psplash-write "QUIT"
+  /root/rpc_server &
+  sleep 5
+  /root/LED_TempHumi_Video  &
+  sleep 5
+  /root/mqtt_device_wechat
+  }
+
+  stop() {
+      killall LED_TempHumi_Video
+  }
+
+  case "$1" in
+      start)
+          start
+          ;;
+      stop)
+          stop
+          ;;
+      *)
+          echo "Usage: $0 {start| stop|restart}"
+          exit 1
+  esac
+
+  exit $?
 
 ---
 
 ## 📌 后续计划
-增加更多传感器和外设（如烟雾、人体红外、GPS）
-部署更智能的检测算法，增加目标识别等功能
-优化视频帧采集的性能和传输效率
-编写简单的驱动程序，对现有驱动进行替换
+- 增加更多传感器和外设（如烟雾、人体红外、GPS）
+- 部署更智能的检测算法，增加目标识别等功能
+- 优化视频帧采集和传输
+- 编写简单的驱动程序，对现有驱动进行替换
 
 ---
 
