@@ -97,7 +97,8 @@
 
 ### 编译步骤
 1. **编译 RPC 服务端**
-   `cd rpc_server
+   ```bash
+   cd rpc_server
    make
    
    生成可执行文件 rpc_server
