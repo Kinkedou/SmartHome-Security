@@ -34,7 +34,7 @@
 
 ## ❗ 快速开始
 ### 编译
-   ```bash
+    ```bash
    #编译 RPC 服务端
    cd rpc_server
    make
@@ -42,6 +42,7 @@
    cd mqtt_device_wechat
    make
    #Qt 客户端：使用 Qt Creator 交叉编译
+
 ### 运行
     ```bash
     ./rpc_server               # 先启动服务端
